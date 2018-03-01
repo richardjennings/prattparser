@@ -14,7 +14,7 @@ type Parser struct {
 	lexed   scanner.Lexed
 }
 
-// Create a new parser
+// NewParser creates a new parser
 func NewParser(src string) *Parser {
 	return &Parser{Scanner: scanner.Scanner{Src: bytes.NewBuffer([]byte(src))}}
 }

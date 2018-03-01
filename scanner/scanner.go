@@ -6,7 +6,7 @@ import (
 	"github.com/richardjennings/pratt/token"
 )
 
-// The Scanner struct containg a bytes buffer and the
+// The Scanner struct containing a bytes buffer and the
 // next rune if not consumed by pass
 type Scanner struct {
 	Src *bytes.Buffer

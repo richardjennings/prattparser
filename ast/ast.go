@@ -6,25 +6,25 @@ import (
 	"github.com/richardjennings/pratt/token"
 )
 
-// The general Expr interface
+// Expr interface for AST Expressions
 type Expr interface {
 }
 
-// A Scalar Expression represents Scalars such as a Integer
+// ScalarExpr represents Scalar Expressions such as a Integer
 type ScalarExpr struct {
 	Expr
 	Val string
 	Typ token.Token
 }
 
-// A Unary Expression such as - 1
+// UnaryExpr represents Unary Expressions such as - 1
 type UnaryExpr struct {
 	Expr
 	Op token.Token
 	X  Expr
 }
 
-// A Binary Expression such as 1 + 1
+// BinaryExpr represents Binary Expression such as 1 + 1
 type BinaryExpr struct {
 	Expr
 	X  Expr

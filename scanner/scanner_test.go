@@ -38,7 +38,7 @@ func TestInterpLexer_Lex_int(t *testing.T) {
 		{token.ADD, ""},
 		{token.INT, "1"},
 	}
-	for _, expect := range(expected) {
+	for _, expect := range expected {
 		lexed := s.Lex()
 		if lexed.Tok != expect.Tok || lexed.Lit != expect.Lit {
 			errorMsg(t, expect, lexed)
@@ -58,7 +58,7 @@ func TestInterpLexer_Lex_operator(t *testing.T) {
 		{token.LPAREN, ""},
 		{token.RPAREN, ""},
 	}
-	for _, expect := range(expected) {
+	for _, expect := range expected {
 		lexed := s.Lex()
 		if lexed.Tok != expect.Tok || lexed.Lit != expect.Lit {
 			errorMsg(t, expect, lexed)

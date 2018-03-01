@@ -40,9 +40,9 @@ const (
 	HighestPrec = 7
 )
 
-// Precendence returns a tokens precedence if defined, otherwise LowestPrec
-func (op Token) Precedence() int {
-	switch op {
+// Precedence returns a tokens precedence if defined, otherwise LowestPrec
+func (tok Token) Precedence() int {
+	switch tok {
 	case ADD, SUB:
 		return 4
 	case MUL, QUO, REM:
@@ -57,7 +57,6 @@ func (op Token) Precedence() int {
 func (tok Token) String() string {
 	if 0 <= tok && tok < Token(len(tokens)) {
 		return tokens[tok]
-	} else {
-		return tokens[0]
 	}
+	return tokens[0]
 }

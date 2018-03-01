@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"github.com/richardjennings/pratt/parser"
+	"os"
 	"strings"
 )
 
@@ -15,7 +15,7 @@ func main() {
 	}
 	p := parser.NewParser(os.Args[1])
 	s := fmt.Sprintf("%s", p.Parse())
-	s = strings.TrimPrefix(s,"(")
-	s = strings.TrimSuffix(s,")")
+	s = strings.TrimPrefix(s, "(")
+	s = strings.TrimSuffix(s, ")")
 	fmt.Println(s)
 }

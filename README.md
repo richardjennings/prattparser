@@ -1,5 +1,6 @@
 
 # Pratt Top-down Operator Precedence Example in Go
+[![Go Report Card](https://goreportcard.com/badge/github.com/richardjennings/pratt)](https://goreportcard.com/report/github.com/richardjennings/pratt)
 
 ## Examples
 ```
