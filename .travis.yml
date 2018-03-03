@@ -5,8 +5,5 @@ go:
 before_install:
   - go get github.com/mattn/goveralls
 script:
-  - $GOPATH/bin/goveralls -service=travis-ci -v -package github.com/richardjennings/pratt/parser
-  - $GOPATH/bin/goveralls -service=travis-ci -v -package github.com/richardjennings/pratt/cmd
-  - $GOPATH/bin/goveralls -service=travis-ci -v -package github.com/richardjennings/pratt/ast
-  - $GOPATH/bin/goveralls -service=travis-ci -v -package github.com/richardjennings/pratt/scanner
-  - $GOPATH/bin/goveralls -service=travis-ci -v -package github.com/richardjennings/pratt/token
+  - go test -v ./... --coverprofile coverage
+  - $GOPATH/bin/goveralls -service=travis-ci -v -coverprofile coverage
