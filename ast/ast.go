@@ -6,31 +6,32 @@ import (
 	"github.com/richardjennings/pratt/token"
 )
 
-// Expr interface for AST Expressions
-type Expr interface {
-}
+type (
+	// Expr interface for AST Expressions
+	Expr interface {}
 
-// ScalarExpr represents Scalar Expressions such as a Integer
-type ScalarExpr struct {
-	Expr
-	Val string
-	Typ token.Token
-}
+	// ScalarExpr represents Scalar Expressions such as a Integer
+	ScalarExpr struct {
+		Expr
+		Val string
+		Typ token.Token
+	}
 
-// UnaryExpr represents Unary Expressions such as - 1
-type UnaryExpr struct {
-	Expr
-	Op token.Token
-	X  Expr
-}
+	// UnaryExpr represents Unary Expressions such as - 1
+	UnaryExpr struct {
+		Expr
+		Op token.Token
+		X  Expr
+	}
 
-// BinaryExpr represents Binary Expression such as 1 + 1
-type BinaryExpr struct {
-	Expr
-	X  Expr
-	Op token.Token
-	Y  Expr
-}
+	// BinaryExpr represents Binary Expression such as 1 + 1
+	BinaryExpr struct {
+		Expr
+		X  Expr
+		Op token.Token
+		Y  Expr
+	}
+)
 
 // String representation of Scalar Expression
 func (s ScalarExpr) String() string {
