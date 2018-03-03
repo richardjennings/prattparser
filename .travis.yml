@@ -5,4 +5,5 @@ go:
 before_install:
   - go get github.com/mattn/goveralls
 script:
-  - $GOPATH/bin/goveralls -service=travis-ci -v
+  - go test -v ./... --coverprofile coverage
+  - $GOPATH/bin/goveralls -service=travis-ci -v -coverprofile coverage
