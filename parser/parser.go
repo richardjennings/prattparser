@@ -2,10 +2,11 @@
 package parser
 
 import (
+	"fmt"
 	"bytes"
 	"github.com/richardjennings/pratt/ast"
-	"github.com/richardjennings/pratt/scanner"
 	"github.com/richardjennings/pratt/token"
+	"github.com/richardjennings/pratt/scanner"
 )
 
 // The Parser struct
@@ -32,26 +33,32 @@ func (p *Parser) expr(rbp int) ast.Expr {
 	//null denotation
 	var left interface{}
 	switch t.Tok {
+	case token.ILLEGAL:
+		panic(fmt.Sprintf("Parse Error: %s", t.Lit))
 	case token.LPAREN:
 		left = p.expr(0)
 		if p.lexed.Tok != token.RPAREN {
-			panic("expected )")
+			panic("Parse Error: expected )")
 		}
 		p.lexed = p.Scanner.Lex()
-	case token.INT:
-		left = ast.ScalarExpr{Val: t.Lit, Typ: t.Tok}
-	case token.ADD, token.SUB:
-		left = ast.UnaryExpr{X: p.expr(token.HighestPrec), Op: t.Tok}
+	default:
+		switch true {
+		case t.Tok.IsScalar():
+			left = ast.ScalarExpr{Val: t.Lit, Typ: t.Tok}
+		case t.Tok.IsUnary():
+			left = ast.UnaryExpr{X: p.expr(token.HighestPrec), Op: t.Tok}
+		}
 	}
+
 	// left binding power
 	for rbp < p.lexed.Tok.Precedence() {
 		t = p.lexed
 		p.lexed = p.Scanner.Lex()
 		//left denotation
-		switch t.Tok {
-		case token.POW:
+		switch true {
+		case t.Tok.IsRightAssoc():
 			left = ast.BinaryExpr{X: left, Op: t.Tok, Y: p.expr(t.Tok.Precedence() - 1)}
-		case token.ADD, token.SUB, token.MUL, token.QUO, token.REM:
+		case t.Tok.IsLeftAssoc():
 			left = ast.BinaryExpr{X: left, Op: t.Tok, Y: p.expr(t.Tok.Precedence())}
 		}
 	}
