@@ -1,11 +1,11 @@
 package main
 
 import (
-	"os"
-	"io"
 	"fmt"
-	"strings"
 	"github.com/richardjennings/pratt/parser"
+	"io"
+	"os"
+	"strings"
 )
 
 // cli struct provides a configurable io.Writer for exec
@@ -15,7 +15,7 @@ type cli struct {
 
 // NewCli returns a new cli pointer using the supplied io.Writer implementation
 func NewCli(writer io.Writer) *cli {
-	return &cli{w:writer}
+	return &cli{w: writer}
 }
 
 // A Command Line Interface to parse expressions

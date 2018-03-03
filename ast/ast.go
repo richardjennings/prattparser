@@ -8,7 +8,7 @@ import (
 
 type (
 	// Expr interface for AST Expressions
-	Expr interface {}
+	Expr interface{}
 
 	// ScalarExpr represents Scalar Expressions such as a Integer
 	ScalarExpr struct {

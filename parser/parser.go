@@ -2,11 +2,11 @@
 package parser
 
 import (
-	"fmt"
 	"bytes"
+	"fmt"
 	"github.com/richardjennings/pratt/ast"
-	"github.com/richardjennings/pratt/token"
 	"github.com/richardjennings/pratt/scanner"
+	"github.com/richardjennings/pratt/token"
 )
 
 // The Parser struct
