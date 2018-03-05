@@ -34,14 +34,14 @@ func TestCompiler_Compile_binaryExpr(t *testing.T) {
 	}
 	c := NewCompiler()
 	expected := []Instruction{
-		{Op: MULTIPLY, Arg1: Argument{Val:"2", ValType:INTEGER}, Arg2: Argument{Val:"2", ValType:INTEGER}, Ret:Argument{TVal:1}},
-		{Op: ADD, Arg1: Argument{Val:"1", ValType:INTEGER}, Arg2: Argument{TVal:1}, Ret:Argument{TVal:2}},
+		{Op: MULTIPLY, Arg1: Argument{Val: "2", ValType: INTEGER}, Arg2: Argument{Val: "2", ValType: INTEGER}, Ret: Argument{TVal: 1}},
+		{Op: ADD, Arg1: Argument{Val: "1", ValType: INTEGER}, Arg2: Argument{TVal: 1}, Ret: Argument{TVal: 2}},
 	}
 	insts := c.Compile(expr)
 	if insts.tvals != 2 {
-		t.Errorf("expected 2 got %s", insts.tvals)
+		t.Errorf("expected 2 got %d", insts.tvals)
 	}
-	for i, actual := range(insts.instructions) {
+	for i, actual := range insts.instructions {
 		if compareInstrucions(expected[i], actual) == false {
 			t.Errorf("expected %s got %s", expected, actual)
 		}
@@ -56,13 +56,13 @@ func TestCompiler_Compile_unaryExpr(t *testing.T) {
 	}
 	c := NewCompiler()
 	expected := []Instruction{
-		{Op: SUBTRACT, Arg2: Argument{Val:"1", ValType:INTEGER}, Ret:Argument{TVal:1}},
+		{Op: SUBTRACT, Arg2: Argument{Val: "1", ValType: INTEGER}, Ret: Argument{TVal: 1}},
 	}
 	insts := c.Compile(expr)
 	if insts.tvals != 1 {
-		t.Errorf("expected 2 got %s", insts.tvals)
+		t.Errorf("expected 2 got %d", insts.tvals)
 	}
-	for i, actual := range(insts.instructions) {
+	for i, actual := range insts.instructions {
 		if compareInstrucions(expected[i], actual) == false {
 			t.Errorf("expected %s got %s", expected, actual)
 		}

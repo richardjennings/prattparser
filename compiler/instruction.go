@@ -83,7 +83,7 @@ func (i Instruction) String() string {
 
 // Returns a string representation of an Argument
 func (a Argument) String() string {
-	if a.ValType == 0 && a.TVal == 0{
+	if a.ValType == 0 && a.TVal == 0 {
 		return "{}"
 	}
 	if a.TVal > 0 {

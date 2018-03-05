@@ -1,8 +1,8 @@
 package main
 
 import (
-	"testing"
 	"bytes"
+	"testing"
 )
 
 func TestExec_exec(t *testing.T) {
@@ -23,5 +23,3 @@ l3: Op: ADD, Arg1: { TV3 }, Arg2: { Val: 1, INTEGER }, Ret: { TV4 }
 		t.Errorf("\nexpected\n%q \ngot\n%q", expected, actual)
 	}
 }
-
-
