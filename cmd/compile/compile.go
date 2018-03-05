@@ -20,23 +20,21 @@ func NewCli(writer io.Writer) *cli {
 
 // A Command Line Interface to parse expressions
 func main() {
-	if len(os.Args) != 2 {
-		fmt.Println(`example usage: ./compile "1 + 1"`)
-		os.Exit(1)
-	}
-	cli := NewCli(os.Stdout)
-	cli.exec(os.Args[1])
+	NewCli(os.Stdout).exec(os.Args)
 }
 
 // exec executes the parser with supplied src, formats the result and writes to cli io.Writer
-func (c *cli) exec(src string) {
+func (c *cli) exec(args []string) {
+	if len(args) != 2 {
+		fmt.Println(`example usage: ./compile "1 + 1"`)
+		os.Exit(1)
+	}
 	defer func() {
 		if r := recover(); r != nil {
 			fmt.Fprintln(c.w, r)
 		}
 	}()
-	p := parser.NewParser(src)
-
+	p := parser.NewParser(args[1])
 	expr := p.Parse()
 	fmt.Fprintln(c.w, fmt.Sprintf("Expression: %s", expr))
 	compiler := compiler.NewCompiler()
