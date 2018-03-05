@@ -9,7 +9,7 @@ func TestExec_exec(t *testing.T) {
 	src := "-4^7*2+1"
 	bufo := bytes.NewBuffer([]byte{})
 	bufe := bytes.NewBuffer([]byte{})
-	cli := NewCli(bufo, bufe, func(int int){})
+	cli := NewCli(bufo, bufe, func(int int) {})
 	cli.exec([]string{"", src})
 	actual := bufo.String()
 	expected := `Expression: (((-4 ^ 7) * 2) + 1)
@@ -30,7 +30,7 @@ func TestExec_missing_argument(t *testing.T) {
 `
 	bufo := bytes.NewBuffer([]byte{})
 	bufe := bytes.NewBuffer([]byte{})
-	cli := NewCli(bufo, bufe, func(int int){})
+	cli := NewCli(bufo, bufe, func(int int) {})
 	cli.exec([]string{})
 	actual := bufe.String()
 	if actual != expected {
