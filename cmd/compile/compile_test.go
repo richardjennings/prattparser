@@ -9,7 +9,7 @@ func TestExec_exec(t *testing.T) {
 	src := "-4^7*2+1"
 	buf := bytes.NewBuffer([]byte{})
 	cli := NewCli(buf)
-	cli.exec([]string{"",src})
+	cli.exec([]string{"", src})
 	actual := buf.String()
 	expected := `Expression: (((-4 ^ 7) * 2) + 1)
 tvals: 4

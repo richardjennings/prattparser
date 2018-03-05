@@ -10,7 +10,7 @@ func TestExec_invalid_token(t *testing.T) {
 	expected := "Parse Error: t\n"
 	buf := bytes.NewBuffer([]byte{})
 	cli := NewCli(buf)
-	cli.exec([]string{"",src})
+	cli.exec([]string{"", src})
 	actual := buf.String()
 	if actual != expected {
 		t.Errorf("expected %v got %v", expected, actual)
