@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"github.com/richardjennings/pratt/compiler"
 	"github.com/richardjennings/pratt/parser"
 	"io"
 	"os"
-	"strings"
 )
 
 // cli struct provides a configurable io.Writer for exec
@@ -21,7 +21,7 @@ func NewCli(writer io.Writer) *cli {
 // A Command Line Interface to parse expressions
 func main() {
 	if len(os.Args) != 2 {
-		fmt.Println(`example usage: ./parse "1 + 1"`)
+		fmt.Println(`example usage: ./compile "1 + 1"`)
 		os.Exit(1)
 	}
 	cli := NewCli(os.Stdout)
@@ -36,8 +36,10 @@ func (c *cli) exec(src string) {
 		}
 	}()
 	p := parser.NewParser(src)
-	s := fmt.Sprintf("%s", p.Parse())
-	s = strings.TrimPrefix(s, "(")
-	s = strings.TrimSuffix(s, ")")
-	fmt.Fprintln(c.w, s)
+
+	expr := p.Parse()
+	fmt.Fprintln(c.w, fmt.Sprintf("Expression: %s", expr))
+	compiler := compiler.NewCompiler()
+	instructions := compiler.Compile(expr)
+	fmt.Fprintln(c.w, instructions.String())
 }
