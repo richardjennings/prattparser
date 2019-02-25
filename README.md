@@ -90,23 +90,23 @@ return ast.binary(ast.binary(ast.scalar(INT, '2'), *, ast.scalar(INT, '2')), +, 
 
 Further reference articles: 
 * [simple-top-down-parsing](http://effbot.org/zone/simple-top-down-parsing.htm)
-* [pratt-parsing](https://dev.to/jrop/pratt-parsing) for an explanation of how the algorithm works.
+* [pratt-parsing](https://dev.to/jrop/pratt-parsing) 
 
 
 ## Lexer Scanner
 
 The Scanner expects UTF8 input. The Lexer recognises integers and the following operators:
 
-| symbol | token | operation |
-|---|---|---|
-| + | token.ADD | opcode.ADD |
-| - | token.SUB | opcode.SUBTRACT |
-| * | token.MUL | opcode.MULTIPLY |
-| / | token.QUO | opcode.DIVIDE |
-| % | token.REM | opcode.REMAINDER |
-| ^ | token.POW | opcode.POW |
-| ( | token.LPAREN | |
-| ) | token.RPAREN | |
+| symbol | token |
+|---|---|
+| + | token.ADD |
+| - | token.SUB |
+| * | token.MUL |
+| / | token.QUO |
+| % | token.REM |
+| ^ | token.POW |
+| ( | token.LPAREN |
+| ) | token.RPAREN |
 
 
 ## Parser
