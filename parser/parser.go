@@ -30,6 +30,7 @@ func (p *Parser) Parse() ast.Expr {
 func (p *Parser) expr(rbp int) ast.Expr {
 	t := p.lexed
 	p.lexed = p.Scanner.Lex()
+
 	//null denotation
 	var left interface{}
 	switch t.Tok {

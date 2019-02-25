@@ -45,10 +45,12 @@ func (tok Token) Precedence() int {
 	switch tok {
 	case ADD, SUB:
 		return 4
-	case MUL, QUO, REM:
+	case MUL, QUO:
 		return 5
 	case POW:
 		return 6
+	case REM:
+		return 7
 	}
 	return LowestPrec
 }
@@ -65,7 +67,7 @@ func (tok Token) IsScalar() bool {
 // IsUnary returns true if the token can be in a unary expression
 func (tok Token) IsUnary() bool {
 	switch tok {
-	case INT, ADD, SUB:
+	case ADD, SUB:
 		return true
 	}
 	return false
