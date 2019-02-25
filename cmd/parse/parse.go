@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/richardjennings/pratt/parser"
+	"github.com/richardjennings/prattparser/parser"
 	"io"
 	"os"
 	"strings"

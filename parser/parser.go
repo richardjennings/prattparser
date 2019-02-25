@@ -4,9 +4,9 @@ package parser
 import (
 	"bytes"
 	"fmt"
-	"github.com/richardjennings/pratt/ast"
-	"github.com/richardjennings/pratt/scanner"
-	"github.com/richardjennings/pratt/token"
+	"github.com/richardjennings/prattparser/ast"
+	"github.com/richardjennings/prattparser/scanner"
+	"github.com/richardjennings/prattparser/token"
 )
 
 // The Parser struct
@@ -30,6 +30,7 @@ func (p *Parser) Parse() ast.Expr {
 func (p *Parser) expr(rbp int) ast.Expr {
 	t := p.lexed
 	p.lexed = p.Scanner.Lex()
+
 	//null denotation
 	var left interface{}
 	switch t.Tok {

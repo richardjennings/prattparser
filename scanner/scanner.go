@@ -3,7 +3,7 @@ package scanner
 
 import (
 	"bytes"
-	"github.com/richardjennings/pratt/token"
+	"github.com/richardjennings/prattparser/token"
 )
 
 // The Scanner struct containing a bytes buffer and the

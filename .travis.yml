@@ -1,9 +1,10 @@
 language: go
 sudo: false
 go:
-  - "1.10"
-before_install:
-  - go get github.com/mattn/goveralls
+  - "1.11"
+env:
+  - GO111MODULE=on
 script:
-  - go test -v ./... --coverprofile coverage
-  - $GOPATH/bin/goveralls -service=travis-ci -v -coverprofile coverage
+  - go test -v -race -coverprofile=coverage.txt -covermode=atomic ./...
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
