@@ -2,7 +2,7 @@ package ast
 
 import (
 	"fmt"
-	"github.com/richardjennings/pratt/token"
+	"github.com/richardjennings/prattparser/token"
 	"testing"
 )
 

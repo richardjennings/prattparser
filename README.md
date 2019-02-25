@@ -44,25 +44,6 @@ $ go run cmd/parse/parse.go "2 ^ 3 ^ 4"
 2 ^ (3 ^ 4)
 ```
 
-## Compiler
-
-A compiler is included which reduces an ast.Expr to a set of Instructions that could be executed by a simple VM runtime.
-
-Example:
-```
-$ go run cmd/compile/compile.go "4^7*2+1"
-Expression: (((4 ^ 7) * 2) + 1)
-tvals: 3
-l0: Op: POW, Arg1: { Val: 4, INTEGER }, Arg2: { Val: 7, INTEGER }, Ret: { TV1 }
-l1: Op: MULTIPLY, Arg1: { TV1 }, Arg2: { Val: 2, INTEGER }, Ret: { TV2 }
-l2: Op: ADD, Arg1: { TV2 }, Arg2: { Val: 1, INTEGER }, Ret: { TV3 }
-```
-
-## Contributing
-
-Please feel free to create Issues or Pull Requests identifying simplifications, conceptual inaccuracies, non idiomatic go usage, bugs, performance improvements, ...
-
-
 ## Tests
 
 To run tests:
