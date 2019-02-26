@@ -1,5 +1,5 @@
 # Pratt Top-down Operator Precedence Example in Go
-[![Go Report Card](https://goreportcard.com/badge/github.com/richardjennings/pratt)](https://goreportcard.com/report/github.com/richardjennings/prattparser) [![codecov](https://codecov.io/gh/richardjennings/prattparser/branch/master/graph/badge.svg)](https://codecov.io/gh/richardjennings/prattparser) [![Build Status](https://travis-ci.org/richardjennings/pratt.svg?branch=master)](https://travis-ci.org/richardjennings/prattparser)
+[![Go Report Card](https://goreportcard.com/badge/github.com/richardjennings/pratt)](https://goreportcard.com/report/github.com/richardjennings/prattparser) [![codecov](https://codecov.io/gh/richardjennings/prattparser/branch/master/graph/badge.svg)](https://codecov.io/gh/richardjennings/prattparser) [![Build Status](https://travis-ci.org/richardjennings/prattparser.svg?branch=master)](https://travis-ci.org/richardjennings/prattparser)
 
 
 ## About
