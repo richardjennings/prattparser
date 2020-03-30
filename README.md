@@ -30,9 +30,9 @@ The core of the algorithm is:
 func expr(rbp = 0) {
 	left = NUD(next())
 	while rbp < LBP(peek()) {
-        left = LED(left, next())
-    }
-    return left
+		left = LED(left, next())
+	}
+	return left
 }
 ```
 The algorithm uses recursive calls to build a tree from the input stream of tokens. The right binding power is used to stop a
